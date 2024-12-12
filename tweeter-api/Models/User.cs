@@ -22,4 +22,6 @@ public class User
     [Url]
     public string? ProfilePicture { get; set; }
     public string[]? following { get; set; }
+
+    public ICollection<Tweet>? Tweets { get; set; }
 }

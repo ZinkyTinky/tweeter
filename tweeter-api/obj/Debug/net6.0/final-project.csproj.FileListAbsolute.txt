@@ -1,0 +1,7 @@
+/Users/ZinkyTinky/Desktop/BST items/backend-dotnet/final-project/tweeter-api/obj/Debug/net6.0/final-project.csproj.AssemblyReference.cache
+/Users/ZinkyTinky/Desktop/BST items/backend-dotnet/final-project/tweeter-api/obj/Debug/net6.0/final-project.GeneratedMSBuildEditorConfig.editorconfig
+/Users/ZinkyTinky/Desktop/BST items/backend-dotnet/final-project/tweeter-api/obj/Debug/net6.0/final-project.AssemblyInfoInputs.cache
+/Users/ZinkyTinky/Desktop/BST items/backend-dotnet/final-project/tweeter-api/obj/Debug/net6.0/final-project.AssemblyInfo.cs
+/Users/ZinkyTinky/Desktop/BST items/backend-dotnet/final-project/tweeter-api/obj/Debug/net6.0/final-project.csproj.CoreCompileInputs.cache
+/Users/ZinkyTinky/Desktop/BST items/backend-dotnet/final-project/tweeter-api/obj/Debug/net6.0/final-project.MvcApplicationPartsAssemblyInfo.cs
+/Users/ZinkyTinky/Desktop/BST items/backend-dotnet/final-project/tweeter-api/obj/Debug/net6.0/final-project.MvcApplicationPartsAssemblyInfo.cache
