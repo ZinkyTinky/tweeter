@@ -5,7 +5,7 @@ namespace tweeter_api.Repositories;
 public interface ITweetRepository
 {
     IEnumerable<Tweet> GetAllTweets();
-    Tweet? GetTweetByTitle(string tweetTitle);
+    Tweet? GetTweetById(int tweetId);
     Tweet CreateTweet(Tweet newTweet);
     Tweet? UpdateTweet(Tweet newTweet);
     void DeleteTweetById(int tweetId);

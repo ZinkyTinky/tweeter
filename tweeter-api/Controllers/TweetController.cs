@@ -27,13 +27,13 @@ namespace tweeter_api.Controllers
 
         [HttpGet]
         [Route("{tweetId:int}")]
-        public ActionResult<Tweet> GetTweetByTitle(string title) 
+        public ActionResult<Tweet> GetTweetById(int id) 
         {
-            var tweet = _tweetRepository.GetTweetByTitle(title);
-            if (title == null) {
+            var tweet = _tweetRepository.GetTweetById(id);
+            if (id == null) {
                 return NotFound();
             }
-            return Ok(title);
+            return Ok(id);
         }
 
         [HttpPost]
@@ -44,7 +44,7 @@ namespace tweeter_api.Controllers
                 return BadRequest();
             }
             var newTweet = _tweetRepository.CreateTweet(tweet);
-            return Created(nameof(GetTweetByTitle), newTweet);
+            return Created(nameof(GetTweetById), newTweet);
         }
 
         [HttpPut]

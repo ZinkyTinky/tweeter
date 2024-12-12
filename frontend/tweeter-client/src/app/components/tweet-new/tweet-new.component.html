@@ -1,0 +1,13 @@
+<form (ngSubmit)="addTweet()">
+  <h1>ADD NEW Tweet</h1>
+  <span>Tweet Name </span>
+  <input
+    placeholder="Enter tweet name"
+    type="text"
+    name="tweet"
+    [(ngModel)]="newTweet.title"
+  /><br /><br />
+  <span>Description </span>
+
+  <button>Create Tweet</button>
+</form>
