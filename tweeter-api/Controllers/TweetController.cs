@@ -67,5 +67,28 @@ namespace tweeter_api.Controllers
             _tweetRepository.DeleteTweetById(tweetId); 
             return NoContent();
         }
+
+        [HttpGet]
+        [Route("{tweetTitle}")]
+        public ActionResult<IEnumerable<Tweet>> GetTweetsByTitle(string tweetTitle) 
+        {
+            return Ok(_tweetRepository.GetTweetsByTitle(tweetTitle));
+        }
+        [HttpGet]
+        [Route("Users/{tweeterId:int}")]
+        public ActionResult<IEnumerable<Tweet>> GetTweetsByTweeterId(int tweeterId) 
+        {
+            return Ok(_tweetRepository.GetTweetsByTweeterId(tweeterId));
+        }
+        [HttpGet]
+    [Route("User/info/{id}")]
+    public ActionResult<UserDetails> getUserById(int id) 
+    {
+        var userDetails = _tweetRepository.getUserById(id);
+        if (userDetails == null) {
+            return NotFound();
+        }
+        return Ok(userDetails);
+    }
     }
 }

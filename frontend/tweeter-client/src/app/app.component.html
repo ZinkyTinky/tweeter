@@ -1,9 +1,15 @@
 <nav role="navigation">
-  <a routerLink="/signup" title="Sign Up">Sign Up</a>
-  <span> | </span>
-  <a routerLink="/signin" title="Sign In">Sign In</a>
-  <span> | </span>
+  <div signUpIn *ngIf="!isLoggedIn()">
+    <a routerLink="/signup" title="Sign Up">Sign Up</a>
+    <span> | </span>
+    <a routerLink="/signin" title="Sign In">Sign In</a>
+  </div>
   <a routerLink="/tweet" title="Tweet">Tweet</a>
-  <hr />
+  <span> | </span>
+  <div *ngIf="isLoggedIn()">
+    <p>Welcome {{ getTweeterUserName() }}</p>
+    <a href="#" (click)="signOut()" title="Sign Out">Sign Out</a>
+    <hr />
+  </div>
 </nav>
 <router-outlet></router-outlet>

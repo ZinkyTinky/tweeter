@@ -9,5 +9,8 @@ public interface ITweetRepository
     Tweet CreateTweet(Tweet newTweet);
     Tweet? UpdateTweet(Tweet newTweet);
     void DeleteTweetById(int tweetId);
+    IEnumerable<Tweet> GetTweetsByTweeterId(int tweeterId);
+    IEnumerable<Tweet> GetTweetsByTitle(string title);
+    UserDetails? getUserById(int id);
 
 }

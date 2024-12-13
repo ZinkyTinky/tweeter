@@ -5,6 +5,7 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { TweetListComponent } from './components/tweet-list/tweet-list.component';
 import { TweetNewComponent } from './components/tweet-new/tweet-new.component';
 import { TweetEditComponent } from './components/tweet-edit/tweet-edit.component';
+import { TweetUserComponent } from './components/tweet-user/tweet-user.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     path: 'tweet/edit/:id',
     component: TweetEditComponent,
+  },
+  {
+    path: 'tweet/users/:tweeterId',
+    component: TweetUserComponent,
   },
 ];
 

@@ -17,6 +17,10 @@ export class TweetService {
     return this.http.get<Tweet[]>(this.baseURL);
   }
 
+  GetTweetsByTweeterId(tweeterId: number): Observable<Tweet[]> {
+    return this.http.get<Tweet[]>(`${this.baseURL}/Users/${tweeterId}`);
+  }
+
   getTweetById(tweetId: number): Observable<Tweet> {
     return this.http.get<Tweet>(`${this.baseURL}/${tweetId}`);
   }
@@ -57,9 +61,13 @@ export class TweetService {
   getTweeterID() {
     const token = localStorage.getItem(this.tokenKey);
     if (!token) {
-      throw new Error('Token not found');
+      return of(0);
     }
     const decodedToken: any = jwtDecode(token);
     return of(decodedToken.sub); // Wrapping the value in an observable
+  }
+
+  getUserById(id: number) {
+    return this.http.get(`${this.baseURL}/User/info/${id}`);
   }
 }

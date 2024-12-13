@@ -16,9 +16,6 @@ export class TweetListComponent implements OnInit {
   ngOnInit(): void {
     this.tweetService.getAllTweets().subscribe((tweet) => {
       this.tweetList = tweet;
-      for (let i = 0; i < this.tweetList.length; i++) {
-        console.log('*******' + this.tweetList[i].tweeterId + '*******'); // Corrected to lowercase `t`
-      }
     });
   }
 
@@ -61,5 +58,21 @@ export class TweetListComponent implements OnInit {
 
   canEdDelTweet(tweet: Tweet): boolean {
     return tweet.tweeterId == this.getActiveTweeter();
+  }
+
+  isLoggedIn(): boolean {
+    let isLoggedIn = false;
+    this.tweetService.getTweeterID().subscribe(
+      (id: number) => {
+        isLoggedIn = id != 0;
+      },
+      (error: any) => {
+        console.log('Error: ', error);
+        if (error.status === 401 || error.status === 403) {
+          this.router.navigate(['signin']);
+        }
+      }
+    );
+    return isLoggedIn;
   }
 }

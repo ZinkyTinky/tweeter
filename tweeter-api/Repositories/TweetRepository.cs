@@ -38,6 +38,16 @@ public class TweetRepository : ITweetRepository
         return _context.Tweet.SingleOrDefault(c => c.TweetId == tweetId);
     }
 
+    public IEnumerable<Tweet> GetTweetsByTitle(string title)
+    {
+        return _context.Tweet.Where(c => c.Title.ToLower().Contains(title.ToLower())).ToList();
+    }
+
+    public IEnumerable<Tweet> GetTweetsByTweeterId(int tweeterId)
+    {
+        return _context.Tweet.Where(c => c.TweeterId == tweeterId).ToList();
+    }
+
     public Tweet? UpdateTweet(Tweet newTweet)
     {
         var originalTweet = _context.Tweet.Find(newTweet.TweetId);
@@ -48,5 +58,25 @@ public class TweetRepository : ITweetRepository
             _context.SaveChanges();
         }
         return originalTweet;
+    }
+
+    public UserDetails? getUserById(int userId)
+    {
+        var user = _context.Users.SingleOrDefault(x => x.tweeterId == userId);
+        if (user == null)
+        {
+            return null;
+        }
+
+        return new UserDetails
+        {
+            tweeterId = user.tweeterId,
+            FirstName = user.FirstName,
+            LastName = user.LastName,
+            Username = user.Username,
+            Bio = user.Bio,
+            ProfilePicture = user.ProfilePicture,
+            following = user.following
+        };
     }
 }

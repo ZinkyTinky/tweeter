@@ -1,5 +1,5 @@
 <h1>Tweets</h1>
-<a [routerLink]="['new']">Create New Tweet</a>
+<a *ngIf="isLoggedIn()" [routerLink]="['new']">Create New Tweet</a>
 <div *ngIf="tweetList">
   <div *ngFor="let tweet of tweetList">
     <h2>{{ tweet.title }}</h2>

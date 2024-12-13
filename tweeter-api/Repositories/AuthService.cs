@@ -57,10 +57,10 @@ public class AuthService : IAuthService
         var claims = new Claim[]
         {
             new Claim(JwtRegisteredClaimNames.Sub, user.tweeterId.ToString()),
-            //new Claim("Tweeter_UserId", user.UserId.ToString()),
             new Claim(JwtRegisteredClaimNames.Email, user.Email ?? ""),
             new Claim(JwtRegisteredClaimNames.FamilyName, user.LastName ?? ""),
-            new Claim(JwtRegisteredClaimNames.GivenName, user.FirstName ?? "")
+            new Claim(JwtRegisteredClaimNames.GivenName, user.FirstName ?? ""),
+            new Claim("username", user.Username ?? "")
         };
 
         // Create token
@@ -74,4 +74,7 @@ public class AuthService : IAuthService
 
         return encodedJwt;
     }
+
+    
+    
 }
