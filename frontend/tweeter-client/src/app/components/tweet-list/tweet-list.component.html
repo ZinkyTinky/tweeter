@@ -3,8 +3,10 @@
 <div *ngIf="tweetList">
   <div *ngFor="let tweet of tweetList">
     <h2>{{ tweet.title }}</h2>
-    <button (click)="deleteTweet(+tweet.tweetId!)">Delete</button>
-    <a [routerLink]="['edit', tweet.tweetId]">Edit</a>
+    <div *ngIf="canEdDelTweet(tweet)">
+      <button (click)="deleteTweet(+tweet.tweetId!)">Delete</button>
+      <a [routerLink]="['edit', tweet.tweetId]">Edit</a>
+    </div>
     <hr />
   </div>
 </div>

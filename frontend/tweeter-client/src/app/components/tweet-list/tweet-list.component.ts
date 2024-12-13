@@ -16,16 +16,19 @@ export class TweetListComponent implements OnInit {
   ngOnInit(): void {
     this.tweetService.getAllTweets().subscribe((tweet) => {
       this.tweetList = tweet;
+      for (let i = 0; i < this.tweetList.length; i++) {
+        console.log('*******' + this.tweetList[i].tweeterId + '*******'); // Corrected to lowercase `t`
+      }
     });
   }
 
   deleteTweet(tweetId: number): void {
     this.tweetService.deleteTweet(tweetId.toString()).subscribe(
       () => {
-        this.loadCweets();
-        alert('Cweet was deleted successfully');
+        this.loadTweets();
+        alert('Tweet was deleted successfully');
       },
-      (error) => {
+      (error: any) => {
         console.log('Error: ', error);
         if (error.status === 401 || error.status === 403) {
           this.router.navigate(['signin']);
@@ -34,9 +37,29 @@ export class TweetListComponent implements OnInit {
     );
   }
 
-  loadCweets(): void {
+  loadTweets(): void {
     this.tweetService.getAllTweets().subscribe((tweet) => {
       this.tweetList = tweet;
     });
+  }
+
+  getActiveTweeter(): number {
+    let TweeterId: number = 0;
+    this.tweetService.getTweeterID().subscribe(
+      (id: number) => {
+        TweeterId = id;
+      },
+      (error: any) => {
+        console.log('Error: ', error);
+        if (error.status === 401 || error.status === 403) {
+          this.router.navigate(['signin']);
+        }
+      }
+    );
+    return TweeterId;
+  }
+
+  canEdDelTweet(tweet: Tweet): boolean {
+    return tweet.tweeterId == this.getActiveTweeter();
   }
 }

@@ -6,7 +6,7 @@ namespace tweeter_api.Models;
 public class User 
 {
     [JsonIgnore]
-    public int TweeterId { get; set; }
+    public int tweeterId { get; set; }
 
     public string? FirstName { get; set; }
     public string? LastName { get; set; }

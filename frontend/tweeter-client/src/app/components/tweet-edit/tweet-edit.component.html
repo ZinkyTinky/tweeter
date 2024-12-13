@@ -1,1 +1,23 @@
-<p>tweet-edit works!</p>
+<form (ngSubmit)="onSubmit()">
+  <div>
+    <label for="name">Title:</label>
+    <input
+      type="text"
+      id="name"
+      [(ngModel)]="ExistingTweet.title"
+      name="name"
+      required
+    />
+  </div>
+  <div>
+    <label for="type">Body:</label>
+    <input
+      type="text"
+      id="type"
+      [(ngModel)]="ExistingTweet.tweetBody"
+      name="type"
+      required
+    />
+  </div>
+  <button type="submit">Save</button>
+</form>

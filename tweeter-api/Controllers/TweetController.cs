@@ -27,13 +27,14 @@ namespace tweeter_api.Controllers
 
         [HttpGet]
         [Route("{tweetId:int}")]
-        public ActionResult<Tweet> GetTweetById(int id) 
+        public ActionResult<Tweet> GetTweetById(int tweetId) 
         {
-            var tweet = _tweetRepository.GetTweetById(id);
-            if (id == null) {
+            var tweet = _tweetRepository.GetTweetById(tweetId);
+            if (tweet == null) // Check if the tweet is null
+            {
                 return NotFound();
             }
-            return Ok(id);
+            return Ok(tweet);
         }
 
         [HttpPost]

@@ -40,8 +40,8 @@ export class TweetEditComponent implements OnInit {
   onSubmit(): void {
     this.TweetService.updateTweet(this.ExistingTweet).subscribe(
       () => {
-        window.alert('Updated Cweet Successfully');
-        this.router.navigate(['cweet']);
+        window.alert('Updated Tweet Successfully');
+        this.router.navigate(['tweet']);
       },
       (error) => {
         console.log('Error: ', error);

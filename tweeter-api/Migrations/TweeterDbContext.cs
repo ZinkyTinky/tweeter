@@ -20,7 +20,7 @@ public class TweeterDbContext : DbContext
 
         modelBuilder.Entity<User>(entity =>
         {
-            entity.HasKey(e => e.TweeterId);
+            entity.HasKey(e => e.tweeterId);
             entity.Property(e => e.Email).IsRequired();
             entity.HasIndex(x => x.Email).IsUnique();
             entity.Property(e => e.Password).IsRequired();
@@ -39,7 +39,7 @@ public class TweeterDbContext : DbContext
         modelBuilder.Entity<User>().HasData(
             new User
             {
-                TweeterId = 1,
+                tweeterId = 1,
                 FirstName = "Zian",
                 LastName = "Jacobsen",
                 Email = "zian@tsale.co.za",

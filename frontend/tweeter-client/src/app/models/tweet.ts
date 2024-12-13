@@ -3,8 +3,8 @@ export class Tweet {
   title?: string;
   createdAt?: Date;
   editedAt?: Date;
-  TweetBody?: string;
-  TweeterId?: number;
+  tweetBody?: string;
+  tweeterId?: number;
 
   constructor(
     id?: number,
@@ -16,9 +16,9 @@ export class Tweet {
   ) {
     this.tweetId = id;
     this.title = title;
-    this.TweetBody = tweetBody;
+    this.tweetBody = tweetBody;
     this.createdAt = createdAt;
     this.editedAt = editedAt;
-    this.TweeterId = tweeterId;
+    this.tweeterId = tweeterId;
   }
 }

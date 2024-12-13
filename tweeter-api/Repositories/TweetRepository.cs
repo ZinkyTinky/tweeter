@@ -33,9 +33,9 @@ public class TweetRepository : ITweetRepository
         return _context.Tweet.ToList();
     }
 
-    public Tweet? GetTweetById(int id)
+    public Tweet? GetTweetById(int tweetId)
     {
-        return _context.Tweet.SingleOrDefault(c => c.TweetId == id);
+        return _context.Tweet.SingleOrDefault(c => c.TweetId == tweetId);
     }
 
     public Tweet? UpdateTweet(Tweet newTweet)

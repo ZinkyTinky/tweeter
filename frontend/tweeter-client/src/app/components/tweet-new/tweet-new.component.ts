@@ -13,7 +13,22 @@ export class TweetNewComponent implements OnInit {
 
   constructor(private tweetService: TweetService, private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.newTweet.createdAt = new Date();
+    let tweeterId: number = 0;
+    this.tweetService.getTweeterID().subscribe(
+      (id: number) => {
+        console.log('Tweeter ID: ', id);
+        this.newTweet.tweeterId = id;
+      },
+      (error: any) => {
+        console.log('Error: ', error);
+        if (error.status === 401 || error.status === 403) {
+          this.router.navigate(['signin']);
+        }
+      }
+    );
+  }
 
   addTweet() {
     this.tweetService.createTweet(this.newTweet).subscribe(

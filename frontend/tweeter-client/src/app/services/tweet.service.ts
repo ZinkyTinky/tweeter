@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Tweet } from '../models/tweet';
+import { jwtDecode } from 'jwt-decode';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -11,11 +13,11 @@ export class TweetService {
 
   constructor(private http: HttpClient) {}
 
-  getAllTweets() {
+  getAllTweets(): Observable<Tweet[]> {
     return this.http.get<Tweet[]>(this.baseURL);
   }
 
-  getTweetById(tweetId: number) {
+  getTweetById(tweetId: number): Observable<Tweet> {
     return this.http.get<Tweet>(`${this.baseURL}/${tweetId}`);
   }
 
@@ -30,7 +32,7 @@ export class TweetService {
     return this.http.post(this.baseURL, newTweet, { headers: reqHeaders });
   }
 
-  updateTweet(updatedTweet: Tweet) {
+  updateTweet(updatedTweet: Tweet): Observable<Tweet> {
     let reqHeaders = {
       Authorization: `Bearer ${localStorage.getItem(this.tokenKey)}`,
     };
@@ -43,12 +45,21 @@ export class TweetService {
     );
   }
 
-  deleteTweet(tweetId: string) {
+  deleteTweet(tweetId: string): Observable<void> {
     let reqHeaders = {
       Authorization: `Bearer ${localStorage.getItem(this.tokenKey)}`,
     };
-    return this.http.delete(`${this.baseURL}/${tweetId}`, {
+    return this.http.delete<void>(`${this.baseURL}/${tweetId}`, {
       headers: reqHeaders,
     });
+  }
+
+  getTweeterID() {
+    const token = localStorage.getItem(this.tokenKey);
+    if (!token) {
+      throw new Error('Token not found');
+    }
+    const decodedToken: any = jwtDecode(token);
+    return of(decodedToken.sub); // Wrapping the value in an observable
   }
 }
