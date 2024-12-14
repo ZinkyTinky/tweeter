@@ -3,25 +3,25 @@
     <form (ngSubmit)="signin()" class="signin-form">
       <img src="../../../assets/Icon.png" alt="Tweeter Icon" />
       <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
-      <label>Email </label>
       <div class="form-floating">
         <input
           class="form-control"
+          id="floatingInput"
           placeholder="Enter email"
           type="text"
           name="email"
           [(ngModel)]="email"
         />
+        <label for="floatingInput">Email address</label>
       </div>
-      <label>Password</label>
       <div class="form-floating">
         <input
-          class="form-control"
-          placeholder="Enter password"
           type="password"
-          name="password"
-          [(ngModel)]="password"
+          class="form-control"
+          id="floatingPassword"
+          placeholder="Password"
         />
+        <label for="floatingPassword">Password</label>
       </div>
 
       <button type="submit" class="btn btn-primary">Sign In</button>
