@@ -1,4 +1,60 @@
-<h1>{{ userInfo.firstName }}</h1>
-<div *ngFor="let tweet of userTweets">
-  <p>{{ tweet.title }}</p>
+<div class="user-container">
+  <div class="card" style="width: 18rem">
+    <img
+      src="{{ userInfo.profilePicture }}"
+      class="card-img-top"
+      alt="User has no profile photo"
+    />
+    <div class="card-body">
+      <h5 class="card-title">
+        <h1>{{ userInfo.userName }}</h1>
+      </h5>
+      <p class="card-text">
+        {{ userInfo.bio }}
+      </p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        {{ userInfo.firstName }} {{ userInfo.lastName }}
+      </li>
+    </ul>
+  </div>
+
+  <div class="cards-container">
+    <div *ngIf="tweetList">
+      <div
+        *ngFor="let tweet of tweetList.slice().reverse()"
+        class="card single-card-container"
+        style="width: 18rem"
+      >
+        <div class="card-body">
+          <h2 class="card-title">{{ tweet.title }}</h2>
+          <h6 class="card-subtitle mb-2 text-body-secondary">
+            <a [routerLink]="['/tweet/users', tweet.tweeterId]"
+              >{{
+                tweet.tweeterId !== undefined ? userInfo.userName : "Unknown"
+              }}
+            </a>
+            at -- {{ tweet.createdAt }}
+          </h6>
+          <p class="card-text">
+            {{ tweet.tweetBody }}
+          </p>
+          <div *ngIf="canEdDelTweet(tweet)">
+            <button
+              class="card-link btn btn-danger"
+              (click)="deleteTweet(+tweet.tweetId!)"
+            >
+              Delete
+            </button>
+            <a
+              class="card-link btn btn-primary"
+              [routerLink]="['edit', tweet.tweetId]"
+              >Edit</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

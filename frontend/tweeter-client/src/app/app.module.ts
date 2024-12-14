@@ -24,7 +24,14 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     TweetEditComponent,
     TweetUserComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, BrowserAnimationsModule, NgbModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    NgbModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

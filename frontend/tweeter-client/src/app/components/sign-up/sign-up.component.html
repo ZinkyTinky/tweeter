@@ -73,5 +73,17 @@
     <label for="floatingInput">Bio</label>
   </div>
 
+  <div class="form-floating">
+    <input
+      class="form-control"
+      id="floatingInput"
+      placeholder="Enter Pfp link"
+      type="text"
+      name="profilePicture"
+      [(ngModel)]="newUser.profilePicture"
+    />
+    <label for="floatingInput">Profile photo</label>
+  </div>
+
   <button class="btn btn-primary">Sign Up</button>
 </form>

@@ -1,7 +1,9 @@
-<form (ngSubmit)="onSubmit()">
-  <div>
-    <label for="name">Title:</label>
+<form (ngSubmit)="onSubmit()" class="edit-form">
+  <div class="input-group">
+    <label for="name" class="input-group-text head">Title:</label>
     <input
+      class="form-control"
+      aria-label="With textarea"
       type="text"
       id="name"
       [(ngModel)]="ExistingTweet.title"
@@ -9,9 +11,11 @@
       required
     />
   </div>
-  <div>
-    <label for="type">Body:</label>
+  <div class="input-group">
+    <label for="type" class="input-group-text head">Body:</label>
     <input
+      class="form-control body-control"
+      aria-label="With textarea"
       type="text"
       id="type"
       [(ngModel)]="ExistingTweet.tweetBody"
@@ -19,5 +23,5 @@
       required
     />
   </div>
-  <button type="submit">Save</button>
+  <button class="btn btn-primary" type="submit">Save</button>
 </form>

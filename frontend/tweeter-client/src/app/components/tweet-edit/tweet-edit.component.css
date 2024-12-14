@@ -1,0 +1,14 @@
+.head {
+  width: 80px;
+}
+
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.body-control {
+  height: 300px;
+}
