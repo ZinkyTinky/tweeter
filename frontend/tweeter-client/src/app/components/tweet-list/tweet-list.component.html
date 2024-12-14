@@ -1,7 +1,10 @@
 <div class="list-container">
   <h1 class="h1">Tweets</h1>
+
   <div class="cards-container">
-    <a *ngIf="isLoggedIn()" [routerLink]="['new']">Create New Tweet</a>
+    <a class="btn btn-primary" *ngIf="isLoggedIn()" [routerLink]="['new']"
+      >Create New Tweet</a
+    >
     <div *ngIf="tweetList">
       <div
         *ngFor="let tweet of tweetList.slice().reverse()"
@@ -9,7 +12,7 @@
         style="width: 18rem"
       >
         <div class="card-body">
-          <h5 class="card-title">{{ tweet.title }}</h5>
+          <h2 class="card-title">{{ tweet.title }}</h2>
           <h6 class="card-subtitle mb-2 text-body-secondary">
             <a [routerLink]="['/tweet/users', tweet.tweeterId]"
               >{{

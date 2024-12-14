@@ -1,46 +1,77 @@
-<form (ngSubmit)="signUp()">
+<form (ngSubmit)="signUp()" class="signupform">
   <h1>REGISTER</h1>
-  <span>First Name </span>
-  <input
-    placeholder="Enter First Name"
-    type="text"
-    name="firstName"
-    [(ngModel)]="newUser.firstName"
-  /><br /><br />
-  <span>Last Name </span>
-  <input
-    placeholder="Enter Last Name"
-    type="text"
-    name="lastName"
-    [(ngModel)]="newUser.lastName"
-  /><br /><br />
-  <span>Email </span>
-  <input
-    placeholder="Enter Email"
-    type="text"
-    name="email"
-    [(ngModel)]="newUser.email"
-  /><br /><br />
-  <span>Password </span>
-  <input
-    placeholder="Enter Password"
-    type="text"
-    name="password"
-    [(ngModel)]="newUser.password"
-  /><span>Username </span>
-  <input
-    placeholder="Enter Username"
-    type="text"
-    name="userName"
-    [(ngModel)]="newUser.userName"
-  /><br /><br />
-  <span>Bio </span>
-  <input
-    placeholder="Enter Bio"
-    type="text"
-    name="bio"
-    [(ngModel)]="newUser.bio"
-  /><br /><br />
 
-  <button>Sign Up</button>
+  <div class="form-floating">
+    <input
+      class="form-control"
+      id="floatingInput"
+      placeholder="Enter First Name"
+      type="text"
+      name="firstName"
+      [(ngModel)]="newUser.firstName"
+    />
+    <label for="floatingInput">First Name</label>
+  </div>
+
+  <div class="form-floating">
+    <input
+      class="form-control"
+      id="floatingInput"
+      placeholder="Enter Last Name"
+      type="text"
+      name="lastName"
+      [(ngModel)]="newUser.lastName"
+    />
+    <label for="floatingInput">Last Name</label>
+  </div>
+
+  <div class="form-floating">
+    <input
+      class="form-control"
+      id="floatingInput"
+      placeholder="Enter Email"
+      type="text"
+      name="email"
+      [(ngModel)]="newUser.email"
+    />
+    <label for="floatingInput">Email address</label>
+  </div>
+
+  <div class="form-floating">
+    <input
+      class="form-control"
+      id="floatingInput"
+      placeholder="Enter Password"
+      type="text"
+      name="password"
+      [(ngModel)]="newUser.password"
+    />
+    <label for="floatingInput">Password</label>
+  </div>
+
+  <div class="form-floating">
+    <input
+      class="form-control"
+      id="floatingInput"
+      placeholder="Enter Username"
+      type="text"
+      name="userName"
+      [(ngModel)]="newUser.userName"
+    />
+    <label for="floatingInput">Username</label>
+  </div>
+
+  <div class="form-floating">
+    <input
+      class="form-control"
+      id="floatingInput"
+      placeholder="Enter Bio"
+      type="text"
+      name="bio"
+      [(ngModel)]="newUser.bio"
+    />
+    <label for="floatingInput">Bio</label>
+  </div>
+
+  <button class="btn btn-primary">Sign Up</button>
 </form>

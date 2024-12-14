@@ -16,10 +16,12 @@
       </div>
       <div class="form-floating">
         <input
-          type="password"
           class="form-control"
           id="floatingPassword"
           placeholder="Password"
+          type="password"
+          name="password"
+          [(ngModel)]="password"
         />
         <label for="floatingPassword">Password</label>
       </div>

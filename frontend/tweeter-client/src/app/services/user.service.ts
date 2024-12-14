@@ -18,6 +18,8 @@ export class UserService {
   login(email: string, password: string) {
     let queryParams = new HttpParams();
     queryParams = queryParams.append('email', email);
+    console.log('email', email);
+    console.log('password', password);
     queryParams = queryParams.append('password', password);
 
     return this.http
