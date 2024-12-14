@@ -1,0 +1,11 @@
+.list-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.single-card-container {
+  width: 100vw;
+}

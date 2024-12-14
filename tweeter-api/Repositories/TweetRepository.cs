@@ -73,7 +73,7 @@ public class TweetRepository : ITweetRepository
             tweeterId = user.tweeterId,
             FirstName = user.FirstName,
             LastName = user.LastName,
-            Username = user.Username,
+            UserName = user.Username,
             Bio = user.Bio,
             ProfilePicture = user.ProfilePicture,
             following = user.following

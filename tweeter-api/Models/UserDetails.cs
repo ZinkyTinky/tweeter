@@ -11,7 +11,7 @@ public class UserDetails
     public string? FirstName { get; set; }
     public string? LastName { get; set; }
     [Required]
-    public string? Username { get; set; }
+    public string? UserName { get; set; }
     [Required]
     public string? Bio { get; set; }
     [Url]

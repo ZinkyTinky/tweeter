@@ -1,21 +1,30 @@
-<form (ngSubmit)="signin()">
-  <h1>LOGIN</h1>
-  <span>Email </span>
-  <input
-    placeholder="Enter email"
-    type="text"
-    name="email"
-    [(ngModel)]="email"
-  />
-  <br /><br />
-  <span>Password </span>
-  <input
-    placeholder="Enter password"
-    type="password"
-    name="password"
-    [(ngModel)]="password"
-  />
-  <br /><br />
+<body class="container">
+  <main class="form-signin">
+    <form (ngSubmit)="signin()" class="signin-form">
+      <img src="../../../assets/Icon.png" alt="Tweeter Icon" />
+      <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+      <label>Email </label>
+      <div class="form-floating">
+        <input
+          class="form-control"
+          placeholder="Enter email"
+          type="text"
+          name="email"
+          [(ngModel)]="email"
+        />
+      </div>
+      <label>Password</label>
+      <div class="form-floating">
+        <input
+          class="form-control"
+          placeholder="Enter password"
+          type="password"
+          name="password"
+          [(ngModel)]="password"
+        />
+      </div>
 
-  <button>Sign In</button>
-</form>
+      <button type="submit" class="btn btn-primary">Sign In</button>
+    </form>
+  </main>
+</body>

@@ -1,15 +1,54 @@
-<nav role="navigation">
-  <div signUpIn *ngIf="!isLoggedIn()">
-    <a routerLink="/signup" title="Sign Up">Sign Up</a>
-    <span> | </span>
-    <a routerLink="/signin" title="Sign In">Sign In</a>
-  </div>
-  <a routerLink="/tweet" title="Tweet">Tweet</a>
-  <span> | </span>
-  <div *ngIf="isLoggedIn()">
-    <p>Welcome {{ getTweeterUserName() }}</p>
-    <a href="#" (click)="signOut()" title="Sign Out">Sign Out</a>
-    <hr />
-  </div>
-</nav>
-<router-outlet></router-outlet>
+<body class="all-container">
+  <nav
+    class="navbar navbar-expand-lg bg-primary"
+    data-bs-theme="dark"
+    role="navigation"
+  >
+    <div class="container-fluid">
+      <img
+        class="navbar-logo"
+        src="../assets/longLogo.png"
+        alt="Bootstrap"
+        width="120"
+        height="40"
+      />
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item" *ngIf="!isLoggedIn()">
+            <a class="nav-link" routerLink="/signup" title="Sign Up">Sign Up</a>
+          </li>
+
+          <li class="nav-item" *ngIf="!isLoggedIn()">
+            <a class="nav-link" routerLink="/signin" title="Sign In">Sign In</a>
+          </li>
+
+          <li class="nav-item" *ngIf="isLoggedIn()">
+            <a class="nav-link" [routerLink]="['/tweet/users', getTweeterId()]"
+              >Welcome {{ getTweeterUserName() }}</a
+            >
+          </li>
+
+          <li class="nav-item" *ngIf="isLoggedIn()">
+            <a class="nav-link" href="#" (click)="signOut()" title="Sign Out"
+              >Sign Out</a
+            >
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/tweet" title="Tweet">Tweet</a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input
+            class="form-control me-2"
+            type="search"
+            placeholder="Tweet title"
+            aria-label="Search"
+          />
+          <button class="btn btn-light" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+  <router-outlet></router-outlet>
+</body>

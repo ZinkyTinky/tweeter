@@ -11,6 +11,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { TweetEditComponent } from './components/tweet-edit/tweet-edit.component';
 import { TweetUserComponent } from './components/tweet-user/tweet-user.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,7 @@ import { TweetUserComponent } from './components/tweet-user/tweet-user.component
     TweetEditComponent,
     TweetUserComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, BrowserAnimationsModule, NgbModule],
   providers: [],
   bootstrap: [AppComponent],
 })

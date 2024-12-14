@@ -1,0 +1,33 @@
+.signin-form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  padding-bottom: 30px;
+  background-color: rgba(108, 117, 125, 0.2);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.signin-form img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 20px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  background-color: #ebebeb;
+}
+
+.form-floating {
+  margin-bottom: 10px;
+}
+
+.form-floating input {
+  height: 40px;
+}
